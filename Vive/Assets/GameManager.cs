@@ -6,10 +6,15 @@ public class GameManager : MonoBehaviour{
 		//The Idea is to have a single object that ties together sytems, a game manager.
 		ViveControllerMan.Init();
 		ViveControllerMan.TriggerState += new ViveTriggerEventHandler(ViveTriggerEvent);
+		ViveControllerMan.GripState += new ViveButtonEventHandler(ViveGripEvent);
 	}
 
 	private void ViveTriggerEvent(uint index,int state,float axis){
-		Debug.Log("wooot");
+		Debug.Log("Trigger " + state + " axis " + axis);
+	}
+
+	private void ViveGripEvent(uint index,int state){
+		Debug.Log("Grip " + state);
 	}
 
 
